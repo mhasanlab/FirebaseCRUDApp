@@ -17,10 +17,12 @@ async function createClient(name, email, phone, status, entryDate) {
     await readClient();
     // const successMessage = document.getElementById("successMessage");
     // successMessage.style.display = "block";
-    console.log("data add successfully", docRef.id)
+    //console.log("data add successfully", docRef.id)
+    alart("data add successfully", docRef.id)
   }
   catch (error) {
-    console.error("Error adding document: ", error);
+    //console.error("Error adding document: ", error);
+    alart("Error adding document: ", error);
   }
 }
 
@@ -48,7 +50,8 @@ async function readClient() {
         clientList.insertAdjacentHTML("beforeend", row);
     });
   } catch (error) {
-    console.error("Error reading documents: ", error);
+    //console.error("Error reading documents: ", error);
+    alart("Error reading documents: ", error);
   }
 }
 
@@ -71,7 +74,8 @@ async function updateClient(id, name, email, phone, status, entryDate) {
     // submitBtn.addEventListener("click", createClient);
   } 
   catch (error) {
-    console.error("Error updating document: ", error);
+    //console.error("Error updating document: ", error);
+    alart("Error updating document: ", error);
   }
   await readClient();
 }
@@ -101,13 +105,13 @@ async function editClient(id, name, email, phone, status, entryDate) {
 // Delete entry
 async function deleteClient(id) {
   try {
-   const docRef= await db.collection("clients").doc(id).delete();
+   await db.collection("clients").doc(id).delete();
     
-    alert("Document successfully deleted!", docRef.id);
+    alert("Document successfully deleted!");
     await readClient();
   } 
   catch (error) {
-    console.error("Error removing document: ", error);
+    alart("Error removing document: ", error);
   }
 }
 
