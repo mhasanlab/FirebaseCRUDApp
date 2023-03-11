@@ -63,7 +63,7 @@ async function updateClient(id, name, email, phone, status, entryDate) {
       entryDate: entryDate
     });
     console.log("Document successfully updated!");
-    // form.reset();
+    form.reset();
     submitBtn.innerHTML = "Save Change";
     submitBtn.removeAttribute("data-id");
     submitBtn.removeEventListener("click", updateClient);
