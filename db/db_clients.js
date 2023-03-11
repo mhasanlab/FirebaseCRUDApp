@@ -64,6 +64,7 @@ async function updateClient(id, name, email, phone, status, entryDate) {
     });
     console.log("Document successfully updated!");
     form.reset();
+    location.reload();
     submitBtn.innerHTML = "Save Change";
     submitBtn.removeAttribute("data-id");
     submitBtn.removeEventListener("click", updateClient);
@@ -94,7 +95,6 @@ async function editClient(id, name, email, phone, status, entryDate) {
     var status = document.querySelector("#statusWithTitle").value;
     var entryDate = document.querySelector("#entryDateWithTitle").value;
     await updateClient(id, name, email, phone, status, entryDate);
-    console.log(editClient)
   });
 }
 
