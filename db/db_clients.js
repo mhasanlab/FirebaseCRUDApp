@@ -101,8 +101,9 @@ async function editClient(id, name, email, phone, status, entryDate) {
 // Delete entry
 async function deleteClient(id) {
   try {
-    await db.collection("clients").doc(id).delete();
-    alert("Document successfully deleted!", doc.id);
+   const docRef= await db.collection("clients").doc(id).delete();
+    
+    alert("Document successfully deleted!", docRef.id);
     await readClient();
   } 
   catch (error) {
