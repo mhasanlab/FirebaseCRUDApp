@@ -42,7 +42,7 @@ async function readClient() {
           <td>${client.entryDate}</td>
           <td>
           <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalCenter" onclick="editClient('${doc.id}', '${client.name}', '${client.email}', '${client.phone}', '${client.status}', '${client.entryDate}')"><i class="bx bx-edit-alt me-1"></i></button>
-          <button type="button" class="btn btn-danger btn-sm" onsubmit="deleteClient('${doc.id}')"><i class="bx bx-trash me-1"></i></button>
+          <button type="button" class="btn btn-danger btn-sm" onclick="deleteClient('${doc.id}')"><i class="bx bx-trash me-1"></i></button>
           </td>
         </tr>`;
         clientList.insertAdjacentHTML("beforeend", row);
@@ -103,7 +103,7 @@ async function deleteClient(id) {
   try {
     await db.collection("clients").doc(id).delete();
     // alert("Document successfully deleted!");
-    confirm("Are You Sure!")
+    return confirm("Are You Sure!")
     await readClient();
   } 
   catch (error) {
